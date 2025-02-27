@@ -1,0 +1,29 @@
+# Source files
+src/
+public/
+
+# Config files
+.eslintrc
+.prettierrc
+tsconfig.json
+vite.config.ts
+postcss.config.js
+tailwind.config.js
+
+# Development files
+node_modules/
+.vscode/
+.idea/
+.git/
+.github/
+.gitignore
+.DS_Store
+
+# Build files
+coverage/
+.nyc_output/
+*.log
+
+# Storybook files
+.storybook/
+storybook-static/
