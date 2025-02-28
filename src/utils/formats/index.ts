@@ -1,11 +1,11 @@
 export const formatSimpleCurrencyPtBrWithLabel = (value: number) => {
-  return Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
+  return Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
     minimumFractionDigits: 2,
   }).format(value);
 };
 
 export const removeSpecialCharacters = (str: string): string => {
-  return str.replace(/[^\w\s]/gi, "");
+  return str.replace(/[^\w\s]/gi, '');
 };

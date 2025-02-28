@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import * as React from 'react';
+import { Check, ChevronsUpDown } from 'lucide-react';
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 import {
   Command,
   CommandEmpty,
@@ -12,12 +12,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/ui/command";
+} from '@/components/ui/command';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from '@/components/ui/popover';
 
 type ComboboxProps = {
   value: string;
@@ -52,7 +52,7 @@ export function Combobox({
             options.find((option) => option.value === value)?.label
           ) : (
             <p className="text-health-text-muted font-normal">
-              {placeholder || "Selecione uma opção..."}
+              {placeholder || 'Selecione uma opção...'}
             </p>
           )}
           <ChevronsUpDown className="opacity-50" />
@@ -71,15 +71,15 @@ export function Combobox({
                   key={option.value}
                   value={option.value}
                   onSelect={(currentValue) => {
-                    onChange(currentValue === value ? "" : currentValue);
+                    onChange(currentValue === value ? '' : currentValue);
                     setOpen(false);
                   }}
                 >
                   {option.label}
                   <Check
                     className={cn(
-                      "ml-auto",
-                      value === option.value ? "opacity-100" : "opacity-0"
+                      'ml-auto',
+                      value === option.value ? 'opacity-100' : 'opacity-0',
                     )}
                   />
                 </CommandItem>

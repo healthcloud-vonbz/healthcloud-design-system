@@ -12,13 +12,13 @@ The Input component is a reusable form element that allows users to enter text o
 ## Installation
 
 ```jsx
-import { Input } from "health-cloud-design-system";
+import { Input } from 'health-cloud-design-system';
 ```
 
 ## Usage
 
 ```jsx
-import { Input } from "health-cloud-design-system";
+import { Input } from 'health-cloud-design-system';
 
 export default function InputExample() {
   return <Input type="email" placeholder="Email" className="w-full max-w-sm" />;
@@ -56,7 +56,7 @@ export default function InputExample() {
 ### With Label
 
 ```jsx
-import { Label } from "health-cloud-design-system";
+import { Label } from 'health-cloud-design-system';
 
 <div className="grid w-full max-w-sm items-center gap-1.5">
   <Label htmlFor="email">Email</Label>
@@ -67,20 +67,20 @@ import { Label } from "health-cloud-design-system";
 ### With Form Validation
 
 ```jsx
-import { useState } from "react";
-import { Input, Label, Button } from "health-cloud-design-system";
+import { useState } from 'react';
+import { Button, Input, Label } from 'health-cloud-design-system';
 
 function FormExample() {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email.includes("@")) {
-      setError("Please enter a valid email");
+    if (!email.includes('@')) {
+      setError('Please enter a valid email');
       return;
     }
-    setError("");
+    setError('');
     // Submit form
   };
 
@@ -94,7 +94,7 @@ function FormExample() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className={error ? "border-red-500" : ""}
+          className={error ? 'border-red-500' : ''}
         />
         {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
@@ -125,8 +125,8 @@ The Input component can be customized using Tailwind CSS classes:
 ## Integration with React Hook Form
 
 ```jsx
-import { useForm } from "react-hook-form";
-import { Input, Label, Button } from "health-cloud-design-system";
+import { Button, Input, Label } from 'health-cloud-design-system';
+import { useForm } from 'react-hook-form';
 
 function HookFormExample() {
   const {
@@ -145,9 +145,9 @@ function HookFormExample() {
         <Label htmlFor="username">Username</Label>
         <Input
           id="username"
-          {...register("username", { required: "Username is required" })}
+          {...register('username', { required: 'Username is required' })}
           placeholder="Enter username"
-          className={errors.username ? "border-red-500" : ""}
+          className={errors.username ? 'border-red-500' : ''}
         />
         {errors.username && (
           <p className="text-sm text-red-500">{errors.username.message}</p>

@@ -1,27 +1,27 @@
-import { Input } from "@/components";
-import type { Meta, StoryObj } from "@storybook/react";
+import { Input } from '@/components';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: "Components/Form/Input",
+  title: 'Components/Form/Input',
   component: Input,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     type: {
-      control: "select",
-      options: ["text", "email", "password", "number", "search", "tel", "url"],
-      defaultValue: "text",
+      control: 'select',
+      options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url'],
+      defaultValue: 'text',
     },
     placeholder: {
-      control: "text",
+      control: 'text',
     },
     disabled: {
-      control: "boolean",
+      control: 'boolean',
     },
     className: {
-      control: "text",
+      control: 'text',
     },
   },
 } satisfies Meta<typeof Input>;
@@ -31,7 +31,7 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {
-    placeholder: "Enter text...",
+    placeholder: 'Enter text...',
   },
 };
 
@@ -46,7 +46,7 @@ export const WithLabel: Story = {
 
 export const Disabled: Story = {
   args: {
-    placeholder: "Disabled input",
+    placeholder: 'Disabled input',
     disabled: true,
   },
 };

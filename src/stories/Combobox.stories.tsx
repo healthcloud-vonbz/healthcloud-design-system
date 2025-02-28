@@ -1,13 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import type { Meta, StoryObj } from "@storybook/react";
-import { Combobox } from "@/components/health/Form/Combobox";
-import { useState } from "react";
+import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { Combobox } from '@/components/health/Form/Combobox';
 
 const options = [
-  { value: "react", label: "React" },
-  { value: "vue", label: "Vue" },
-  { value: "angular", label: "Angular" },
-  { value: "svelte", label: "Svelte" },
+  { value: 'react', label: 'React' },
+  { value: 'vue', label: 'Vue' },
+  { value: 'angular', label: 'Angular' },
+  { value: 'svelte', label: 'Svelte' },
 ];
 
 const baseArgs = {
@@ -16,28 +17,28 @@ const baseArgs = {
 };
 
 const meta = {
-  title: "Components/Form/Combobox",
+  title: 'Components/Form/Combobox',
   component: Combobox,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     value: {
-      control: "select",
+      control: 'select',
       options,
     },
     onChange: {
-      action: "onChange",
+      action: 'onChange',
     },
     disabled: {
-      control: "boolean",
+      control: 'boolean',
     },
     withoutSearch: {
-      control: "boolean",
+      control: 'boolean',
     },
     placeholder: {
-      control: "text",
+      control: 'text',
     },
   },
   args: baseArgs, // Define os args padrão para todas as stories
@@ -48,7 +49,7 @@ type Story = StoryObj<typeof Combobox>;
 
 export const Default: Story = {
   render: (args) => {
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState('');
 
     return (
       <Combobox
@@ -69,7 +70,7 @@ export const WithoutSearch: Story = {
     withoutSearch: true,
   },
   render: (args) => {
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState('');
 
     return (
       <Combobox
@@ -84,10 +85,10 @@ export const WithoutSearch: Story = {
 export const Disabled: Story = {
   args: {
     ...baseArgs,
-    value: "react",
+    value: 'react',
     disabled: true,
     options: options.filter(
-      (opt) => opt.value === "react" || opt.value === "svelte"
+      (opt) => opt.value === 'react' || opt.value === 'svelte',
     ),
   },
 };

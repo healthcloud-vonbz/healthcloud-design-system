@@ -1,16 +1,17 @@
-import { LoadingProgress } from "@/components/health/Feedback/LoadingProgress";
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from '@storybook/react';
+
+import { LoadingProgress } from '@/components/health/Feedback/LoadingProgress';
 
 // Configuração do meta
 const meta: Meta<typeof LoadingProgress> = {
-  title: "Components/Feedback/LoadingProgress",
+  title: 'Components/Feedback/LoadingProgress',
   component: LoadingProgress,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
   argTypes: {
-    label: { control: "text" },
-    placeholder: { control: "text" },
+    label: { control: 'text' },
+    placeholder: { control: 'text' },
   },
 };
 

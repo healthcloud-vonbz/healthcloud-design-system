@@ -1,2 +1,2 @@
-export * from "./LoadingProgress";
-export * from "./Spinner";
+export * from './LoadingProgress';
+export * from './Spinner';

@@ -21,7 +21,7 @@ npm install health-cloud-design-system
 ## Usage
 
 ```jsx
-import { Button } from "health-cloud-design-system";
+import { Button } from 'health-cloud-design-system';
 
 function App() {
   return <Button>Click me</Button>;
