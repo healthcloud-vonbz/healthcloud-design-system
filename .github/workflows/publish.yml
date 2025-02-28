@@ -1,0 +1,84 @@
+name: CI/CD - Publish and Storybook Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm test
+
+  # publish:
+  #   name: Publish to NPM
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'push'  # Só publica se for um push na main
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v4
+
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 18
+  #         registry-url: "https://registry.npmjs.org/"
+
+  #     - name: Install Dependencies
+  #       run: npm ci
+
+  #     - name: Build Package
+  #       run: npm run build
+
+  #     - name: Publish to NPM
+  #       run: npm publish --access public
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  deploy-storybook:
+    name: Deploy Storybook
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: storybook-static
