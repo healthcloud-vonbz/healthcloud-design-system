@@ -1,0 +1,50 @@
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Custom Hook/useStep" />
+
+# use-step
+
+O `useStep` é um hook customizado para controlar a navegação entre etapas em um processo (como um formulário de várias etapas ou um assistente). Ele mantém o controle do estado atual da etapa, além de fornecer funções para navegar entre as etapas, ir para a próxima, voltar para a anterior e resetar.
+
+## Como Funciona
+
+Este hook mantém o estado da etapa atual e fornece os seguintes métodos:
+
+- **goToNextStep**: Avança para a próxima etapa, se possível.
+- **goToPrevStep**: Volta para a etapa anterior, se possível.
+- **setStep**: Define uma etapa específica, ou utiliza uma função para calcular a próxima etapa.
+- **canGoToNextStep**: Retorna `true` se for possível avançar para a próxima etapa.
+- **canGoToPrevStep**: Retorna `true` se for possível voltar para a etapa anterior.
+- **reset**: Reseta a navegação para a etapa inicial.
+
+## Exemplos
+
+### Exemplo Básico
+
+A seguir está um exemplo simples de como utilizar o `useStep` em um componente.
+
+```tsx
+import { useStep } from "./useStep";
+
+const StepForm = ({ maxStep }: { maxStep: number }) => {
+  const [
+    currentStep,
+    { goToNextStep, goToPrevStep, reset, canGoToNextStep, canGoToPrevStep },
+  ] = useStep(maxStep);
+
+  return (
+    <div>
+      <h1>Current Step: {currentStep}</h1>
+      <button onClick={goToPrevStep} disabled={!canGoToPrevStep}>
+        Go to Previous Step
+      </button>
+      <button onClick={goToNextStep} disabled={!canGoToNextStep}>
+        Go to Next Step
+      </button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+};
+
+export const StepFormExample = () => <StepForm maxStep={5} />;
+```

@@ -1,0 +1,31 @@
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Custom Hook/useMediaQuery" />
+
+# use-media-query
+
+`useMediaQuery` é um hook customizado do React que permite que você faça consultas de mídia diretamente no JavaScript. Ele monitora a correspondência de uma consulta de mídia CSS e atualiza automaticamente o estado conforme a consulta de mídia (query) seja atendida ou não. Esse tipo de funcionalidade é particularmente útil para fazer o layout responsivo, permitindo que você altere o comportamento do componente com base no tamanho da tela ou outras características do dispositivo.
+
+## Como Funciona
+
+- Entrada: Você passa uma string representando a consulta de mídia CSS para o hook, como "max-width: 768px" ou "min-width: 1200px".
+- Saída: O hook retorna true se a consulta for atendida, ou false se não for atendida. Isso pode ser usado para condicionalmente renderizar ou estilizar componentes com base no tamanho da tela ou características do dispositivo.
+
+## Exemplos
+
+```jsx
+import { useMediaQuery } from "health-cloud-design-system";
+
+export const ResponsiveComponent = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  return (
+    <div>
+      {isMobile ? (
+        <p>You are using a mobile device!</p>
+      ) : (
+        <p>You are using a desktop or tablet!</p>
+      )}
+    </div>
+  );
+};
+```
