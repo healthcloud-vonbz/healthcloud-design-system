@@ -111,7 +111,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/brunoBrian/healthcloud-design-system"
+    "url": "git+https://github.com/brunoBrian/healthcloud-design-system.git"
   },
   "publishConfig": {
     "access": "public"
