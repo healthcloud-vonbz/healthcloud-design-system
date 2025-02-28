@@ -1,5 +1,5 @@
 {
-  "name": "healthcloud-design-system",
+  "name": "health-cloud-design-system",
   "version": "0.1.0",
   "description": "A design system based on shadcn/ui for React applications",
   "type": "module",
