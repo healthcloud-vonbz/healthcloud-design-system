@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from "@storybook/react";
 import { Combobox } from "@/components/health/Form/Combobox";
+import { useState } from "react";
 
 const options = [
   { value: "react", label: "React" },
@@ -45,19 +47,37 @@ export default meta;
 type Story = StoryObj<typeof Combobox>;
 
 export const Default: Story = {
-  args: {
-    ...baseArgs,
-    value: "",
-    placeholder: "Select",
+  render: (args) => {
+    const [selectedValue, setSelectedValue] = useState("");
+
+    return (
+      <Combobox
+        {...args}
+        value={selectedValue}
+        onChange={(value: string) => setSelectedValue(value)}
+      />
+    );
   },
-  render: (args) => <Combobox {...args} />,
+  args: {
+    options,
+  },
 };
 
 export const WithoutSearch: Story = {
   args: {
     ...baseArgs,
-    value: "react",
     withoutSearch: true,
+  },
+  render: (args) => {
+    const [selectedValue, setSelectedValue] = useState("");
+
+    return (
+      <Combobox
+        {...args}
+        value={selectedValue}
+        onChange={(value: string) => setSelectedValue(value)}
+      />
+    );
   },
 };
 

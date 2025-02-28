@@ -12,38 +12,32 @@ The Input component is a reusable form element that allows users to enter text o
 ## Installation
 
 ```jsx
-import { Input } from 'shadcn-design-system';
+import { Input } from "health-cloud-design-system";
 ```
 
 ## Usage
 
 ```jsx
-import { Input } from 'shadcn-design-system';
+import { Input } from "health-cloud-design-system";
 
 export default function InputExample() {
-  return (
-    <Input 
-      type="email" 
-      placeholder="Email" 
-      className="w-full max-w-sm" 
-    />
-  );
+  return <Input type="email" placeholder="Email" className="w-full max-w-sm" />;
 }
 ```
 
 ## Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| type | string | "text" | HTML input type attribute |
-| placeholder | string | - | Placeholder text |
-| value | string | - | Input value |
-| defaultValue | string | - | Default input value |
-| disabled | boolean | false | Whether the input is disabled |
-| className | string | - | Additional CSS classes |
-| onChange | function | - | Callback when input value changes |
-| onFocus | function | - | Callback when input receives focus |
-| onBlur | function | - | Callback when input loses focus |
+| Prop         | Type     | Default | Description                        |
+| ------------ | -------- | ------- | ---------------------------------- |
+| type         | string   | "text"  | HTML input type attribute          |
+| placeholder  | string   | -       | Placeholder text                   |
+| value        | string   | -       | Input value                        |
+| defaultValue | string   | -       | Default input value                |
+| disabled     | boolean  | false   | Whether the input is disabled      |
+| className    | string   | -       | Additional CSS classes             |
+| onChange     | function | -       | Callback when input value changes  |
+| onFocus      | function | -       | Callback when input receives focus |
+| onBlur       | function | -       | Callback when input loses focus    |
 
 ## Examples
 
@@ -62,31 +56,31 @@ export default function InputExample() {
 ### With Label
 
 ```jsx
-import { Label } from 'shadcn-design-system';
+import { Label } from "health-cloud-design-system";
 
 <div className="grid w-full max-w-sm items-center gap-1.5">
   <Label htmlFor="email">Email</Label>
   <Input type="email" id="email" placeholder="Email" />
-</div>
+</div>;
 ```
 
 ### With Form Validation
 
 ```jsx
-import { useState } from 'react';
-import { Input, Label, Button } from 'shadcn-design-system';
+import { useState } from "react";
+import { Input, Label, Button } from "health-cloud-design-system";
 
 function FormExample() {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email.includes('@')) {
-      setError('Please enter a valid email');
+    if (!email.includes("@")) {
+      setError("Please enter a valid email");
       return;
     }
-    setError('');
+    setError("");
     // Submit form
   };
 
@@ -122,21 +116,25 @@ function FormExample() {
 The Input component can be customized using Tailwind CSS classes:
 
 ```jsx
-<Input 
-  className="h-12 rounded-xl border-2 border-purple-500 focus:border-purple-700 px-4" 
-  placeholder="Custom styled input" 
+<Input
+  className="h-12 rounded-xl border-2 border-purple-500 focus:border-purple-700 px-4"
+  placeholder="Custom styled input"
 />
 ```
 
 ## Integration with React Hook Form
 
 ```jsx
-import { useForm } from 'react-hook-form';
-import { Input, Label, Button } from 'shadcn-design-system';
+import { useForm } from "react-hook-form";
+import { Input, Label, Button } from "health-cloud-design-system";
 
 function HookFormExample() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const onSubmit = (data) => {
     console.log(data);
   };
