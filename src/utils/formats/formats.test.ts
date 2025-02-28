@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import { formatSimpleCurrencyPtBrWithLabel, removeSpecialCharacters } from '.';
 
 describe('Formats Utils', () => {
