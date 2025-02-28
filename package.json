@@ -24,7 +24,7 @@
     "publish:major": "npm version major && npm publish",
     "clean": "rm -rf dist",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
-    "test": "vitest",
+    "test": "vitest --run",
     "test:watch": "vitest --watch"
   },
   "peerDependencies": {
