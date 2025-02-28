@@ -7,8 +7,16 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      include: ["src/components", "src/lib", "src/hooks"],
-      exclude: ["src/App.tsx", "src/main.tsx"],
+      include: ["src/**/*.ts", "src/**/*.tsx"],
+      exclude: [
+        "src/App.tsx",
+        "src/main.tsx",
+        "src/stories/**/*",
+        "src/vite-env.d.ts",
+        "src/components/ui/*",
+        "src/lib/*",
+      ],
+      tsconfigPath: "./tsconfig.app.json",
     }),
   ],
   build: {

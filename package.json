@@ -21,7 +21,9 @@
     "prepare": "npm run build",
     "publish:patch": "npm version patch && npm publish",
     "publish:minor": "npm version minor && npm publish",
-    "publish:major": "npm version major && npm publish"
+    "publish:major": "npm version major && npm publish",
+    "clean": "rm -rf dist",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -43,6 +45,7 @@
     "date-fns": "^3.6.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.446.0",
+    "maska": "^3.1.0",
     "next-themes": "^0.3.0",
     "react-day-picker": "^8.10.1",
     "react-hook-form": "^7.53.0",
