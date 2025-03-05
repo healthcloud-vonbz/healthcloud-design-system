@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
   Command,
@@ -45,7 +44,7 @@ export function Combobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full justify-between border text-black min-w-[40px] border-input overflow-hidden"
+          className="w-full justify-between border text-black min-w-[40px] border-input overflow-hidden px-2"
           disabled={disabled}
         >
           {value ? (
@@ -55,7 +54,7 @@ export function Combobox({
               {placeholder || 'Selecione uma opção...'}
             </p>
           )}
-          <ChevronsUpDown className="opacity-50" />
+          <ChevronsUpDown size={14} className="opacity-50 min-w-[14px]" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-full p-0" align="start">
@@ -76,12 +75,7 @@ export function Combobox({
                   }}
                 >
                   {option.label}
-                  <Check
-                    className={cn(
-                      'ml-auto',
-                      value === option.value ? 'opacity-100' : 'opacity-0',
-                    )}
-                  />
+                  {value === option.value && <Check className="ml-auto" />}
                 </CommandItem>
               ))}
             </CommandGroup>

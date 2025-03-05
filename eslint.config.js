@@ -12,11 +12,13 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  prettier, // Desativa regras do ESLint que entram em conflito com o Prettier
+  prettier,
   {
     plugins: { prettier: pluginPrettier },
     rules: {
-      'prettier/prettier': 'error', // Ativa o Prettier como uma regra do ESLint
+      'prettier/prettier': 'error',
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
     },
   },
 ];
