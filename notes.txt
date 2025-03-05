@@ -1,0 +1,37 @@
+📦 Como usar o yalc para testar o Design System localmente
+O yalc permite testar pacotes NPM localmente sem precisar publicá-los, facilitando o desenvolvimento e integração do Design System com outros projetos.
+
+1️⃣ Instalar o yalc globalmente
+Antes de tudo, instale o yalc em sua máquina:
+
+npm install -g yalc
+2️⃣ Publicar o Design System no yalc
+No diretório do Design System, execute:
+
+yalc publish
+Isso criará uma versão do pacote armazenada localmente, simulando um pacote publicado no NPM.
+
+3️⃣ Adicionar o Design System no projeto consumidor
+No diretório do projeto onde deseja testar o Design System, execute:
+
+yalc add nome-do-design-system
+Isso adicionará o Design System ao projeto como uma dependência local.
+
+4️⃣ Atualizar o Design System no projeto consumidor
+Sempre que fizer mudanças no Design System e quiser atualizar o projeto que o consome, execute dentro do diretório do Design System:
+
+yalc push
+Isso enviará automaticamente as alterações para todos os projetos que estão consumindo o pacote via yalc.
+
+5️⃣ Remover o Design System do projeto e restaurar o NPM
+Se quiser remover o pacote local e voltar a usar a versão do NPM, execute no projeto consumidor:
+
+yalc remove nome-do-design-system
+npm install
+Isso garantirá que o projeto volte a buscar a versão oficial do NPM.
+
+📌 Dicas importantes
+O yalc não altera o package.json, mas cria um link interno na pasta node_modules.
+Se estiver usando o git, não comite as alterações feitas pelo yalc, pois ele é apenas para desenvolvimento local.
+Para garantir que tudo funcione bem, após remover o pacote, rode:
+rm -rf node_modules package-lock.json && npm install

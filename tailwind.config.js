@@ -1,3 +1,5 @@
+import { DSColors } from './src/theme/colors';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
@@ -6,6 +8,7 @@ export default {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    './.storybook/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -15,31 +18,7 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
-        health: {
-          primary: '#6194FA',
-          secondary: '#04CCFC',
-          success: '#34C759',
-          warning: '#FFCD29',
-          pending: '#FF9500',
-          error: '#EB4335',
-          background: {
-            primary: '#FFFFFF',
-            secondary: '#F8F9FC',
-            tertiary: '#F2F5F7',
-          },
-          calendar: {
-            blockedBg: '#C4C4C44D',
-            AllowBg: '#34C75999',
-          },
-          text: {
-            primary: '#09090B',
-            muted: '#677294',
-            inactive: '#C4C4C4',
-          },
-          hover: {
-            primary: '#13429FAD',
-          },
-        },
+        ...DSColors,
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

@@ -6,3 +6,6 @@ export * from './hooks';
 
 // Export utilities
 export * from './utils';
+
+// Export theme colors
+export * from './theme/colors';

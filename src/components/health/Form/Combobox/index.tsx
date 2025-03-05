@@ -44,13 +44,13 @@ export function Combobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full justify-between border text-black min-w-[40px] border-input overflow-hidden px-2"
+          className="w-full justify-between border h-10 text-black min-w-[40px] border-input overflow-hidden px-2"
           disabled={disabled}
         >
           {value ? (
             options.find((option) => option.value === value)?.label
           ) : (
-            <p className="text-health-text-muted font-normal">
+            <p className="text-ds_health-text-muted font-normal">
               {placeholder || 'Selecione uma opção...'}
             </p>
           )}
