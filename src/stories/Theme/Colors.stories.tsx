@@ -1,4 +1,4 @@
-import { DSColors } from '../theme/colors';
+import { DSColors } from '@/theme/colors';
 
 export default {
   title: 'Design System/Colors',
