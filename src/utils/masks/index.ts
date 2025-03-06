@@ -20,6 +20,14 @@ export const utilsFormatDate = new Mask({
   mask: '##/##/####',
 });
 
+export const utilsFormatCNH = new Mask({
+  mask: '#########',
+});
+
+export const utilsFormatPassport = new Mask({
+  mask: '@@######',
+});
+
 export const utilsOnlyNumbers = new Mask({
   mask: '9',
   tokens: {

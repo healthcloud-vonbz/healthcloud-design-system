@@ -2,9 +2,11 @@ import { describe, expect, it } from 'vitest';
 
 import {
   utilsFormatCep,
+  utilsFormatCNH,
   utilsFormatCnpj,
   utilsFormatCpf,
   utilsFormatDate,
+  utilsFormatPassport,
   utilsOnlyLetters,
   utilsOnlyNumbers,
   utilsPhoneWithDDD,
@@ -57,6 +59,20 @@ describe('Formats Utils', () => {
     it('should return only letters', () => {
       const formattedValue = utilsOnlyLetters.masked('56tes87t9e');
       expect(formattedValue).toBe('teste');
+    });
+  });
+
+  describe('utilsFormatCNH', () => {
+    it('should return cnh correctly', () => {
+      const formattedValue = utilsFormatCNH.masked('788844447');
+      expect(formattedValue).toBe('788844447');
+    });
+  });
+
+  describe('utilsFormatPassport', () => {
+    it('should return cnh correctly', () => {
+      const formattedValue = utilsFormatPassport.masked('DN6788899998');
+      expect(formattedValue).toBe('DN678889');
     });
   });
 });
