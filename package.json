@@ -1,6 +1,6 @@
 {
   "name": "health-cloud-design-system",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A design system based on shadcn/ui for React applications",
   "type": "module",
   "main": "dist/index.js",
