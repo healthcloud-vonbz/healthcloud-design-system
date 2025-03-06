@@ -1,6 +1,8 @@
 import { Input } from '@/components';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { Label } from '@/components/ui/label';
+
 const meta = {
   title: 'Components/Form/Input',
   component: Input,
@@ -38,7 +40,7 @@ export const Default: Story = {
 export const WithLabel: Story = {
   render: (args) => (
     <div className="grid w-full max-w-sm items-center gap-1.5">
-      <label htmlFor="email">Email</label>
+      <Label htmlFor="email">Email</Label>
       <Input id="email" type="email" placeholder="Email" {...args} />
     </div>
   ),
