@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import { Mask } from 'maska';
 import { useForm } from 'react-hook-form';
 
@@ -26,10 +25,7 @@ type FormData = {
 
 export function DocumentsForm({ onSubmit, selectedValue }: DocumentsFormProps) {
   const form = useForm<FormData>({
-    defaultValues: {
-      documentType: selectedValue?.documentType || '',
-      documentValue: selectedValue?.documentValue || '',
-    },
+    defaultValues: selectedValue,
   });
 
   const selectedDoc = form.watch('documentType');
@@ -39,18 +35,6 @@ export function DocumentsForm({ onSubmit, selectedValue }: DocumentsFormProps) {
   );
 
   const maskInstance = new Mask({ mask: currentDoc?.mask });
-
-  // Ref para detectar a primeira renderização
-  const isFirstRender = useRef(true);
-
-  // 🔹 Reseta `documentValue` APENAS se não for a primeira renderização
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    form.setValue('documentValue', '');
-  }, [selectedDoc]);
 
   const submitHandler = (documentData: FormData) => {
     onSubmit(documentData);
@@ -76,6 +60,7 @@ export function DocumentsForm({ onSubmit, selectedValue }: DocumentsFormProps) {
                   }))}
                   onChange={(val) => {
                     field.onChange(val);
+                    form.setValue('documentValue', '');
                   }}
                 />
               </FormControl>
