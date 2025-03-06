@@ -9,7 +9,7 @@ export const utilsFormatCpf = new Mask({
 });
 
 export const utilsFormatCnpj = new Mask({
-  mask: ['###.###.###-##', '##.###.###/####-##'],
+  mask: ['##.###.###/####-##'],
 });
 
 export const utilsFormatCep = new Mask({
@@ -25,6 +25,16 @@ export const utilsOnlyNumbers = new Mask({
   tokens: {
     9: {
       pattern: /[0-9]/,
+      repeated: true,
+    },
+  },
+});
+
+export const utilsOnlyLetters = new Mask({
+  mask: 'a',
+  tokens: {
+    a: {
+      pattern: /[a-zA-Z]/,
       repeated: true,
     },
   },

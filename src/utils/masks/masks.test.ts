@@ -5,6 +5,7 @@ import {
   utilsFormatCnpj,
   utilsFormatCpf,
   utilsFormatDate,
+  utilsOnlyLetters,
   utilsOnlyNumbers,
   utilsPhoneWithDDD,
 } from '../masks';
@@ -49,6 +50,13 @@ describe('Formats Utils', () => {
     it('should return only number', () => {
       const formattedValue = utilsOnlyNumbers.masked('d2s20s9f1f8dhk89');
       expect(formattedValue).toBe('22091889');
+    });
+  });
+
+  describe('utilsOnlyLetters', () => {
+    it('should return only letters', () => {
+      const formattedValue = utilsOnlyLetters.masked('56tes87t9e');
+      expect(formattedValue).toBe('teste');
     });
   });
 });
