@@ -46,7 +46,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.4",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.446.0",
     "maska": "^3.1.0",
