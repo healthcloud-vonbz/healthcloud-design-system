@@ -39,6 +39,10 @@ const meta = {
     placeholder: {
       control: 'text',
     },
+    iconType: {
+      control: 'select',
+      options: ['arrow', 'search'],
+    },
   },
   args: baseArgs, // Define os args padrão para todas as stories
 } satisfies Meta<typeof Combobox>;

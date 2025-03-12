@@ -1,7 +1,13 @@
 'use client';
 
 import * as React from 'react';
-import { Check, ChevronsUpDown } from 'lucide-react';
+import {
+  Check,
+  ChevronDown,
+  ChevronsUpDown,
+  ChevronUp,
+  Search,
+} from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -25,6 +31,7 @@ type ComboboxProps = {
   placeholder?: string;
   withoutSearch?: boolean;
   disabled?: boolean;
+  iconType?: 'arrow' | 'search';
 };
 
 export function Combobox({
@@ -34,6 +41,7 @@ export function Combobox({
   placeholder,
   withoutSearch,
   disabled = false,
+  iconType = 'arrow',
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
 
@@ -54,7 +62,15 @@ export function Combobox({
               {placeholder || 'Selecione uma opção...'}
             </p>
           )}
-          <ChevronsUpDown size={14} className="opacity-50 min-w-[14px]" />
+          {iconType === 'arrow' &&
+            (!open ? (
+              <ChevronDown size={14} />
+            ) : (
+              <ChevronUp size={14} className="opacity-50 min-w-[14px]" />
+            ))}
+          {iconType === 'search' && (
+            <Search size={14} className="opacity-50 min-w-[14px]" />
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-full p-0" align="start">
