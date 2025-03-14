@@ -1,13 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-  Check,
-  ChevronDown,
-  ChevronsUpDown,
-  ChevronUp,
-  Search,
-} from 'lucide-react';
+import { Check, ChevronDown, ChevronUp, Search } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -25,8 +19,8 @@ import {
 } from '@/components/ui/popover';
 
 type ComboboxProps = {
-  value: string;
-  onChange: (value: string) => void;
+  selectedValue: string;
+  onChange: (selectedValue: { value: string; label: string }) => void;
   options: { value: string; label: string }[];
   placeholder?: string;
   withoutSearch?: boolean;
@@ -35,7 +29,7 @@ type ComboboxProps = {
 };
 
 export function Combobox({
-  value,
+  selectedValue,
   onChange,
   options,
   placeholder,
@@ -55,8 +49,8 @@ export function Combobox({
           className="w-full justify-between border h-10 text-black min-w-[40px] border-input overflow-hidden px-2"
           disabled={disabled}
         >
-          {value ? (
-            options.find((option) => option.value === value)?.label
+          {selectedValue ? (
+            options.find((option) => option.value === selectedValue)?.label
           ) : (
             <p className="text-ds_health-text-muted font-normal">
               {placeholder || 'Selecione uma opção...'}
@@ -86,12 +80,18 @@ export function Combobox({
                   key={option.value}
                   value={option.value}
                   onSelect={(currentValue) => {
-                    onChange(currentValue === value ? '' : currentValue);
+                    if (currentValue === option.value) {
+                      onChange(option);
+                    }
+
                     setOpen(false);
                   }}
                 >
                   {option.label}
-                  {value === option.value && <Check className="ml-auto" />}
+
+                  {selectedValue === option.value && (
+                    <Check className="ml-auto" />
+                  )}
                 </CommandItem>
               ))}
             </CommandGroup>
