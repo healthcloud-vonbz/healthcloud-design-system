@@ -80,9 +80,11 @@ export function Combobox({
                   key={option.value}
                   value={option.value}
                   onSelect={(currentValue) => {
-                    if (currentValue === option.value) {
-                      onChange(option);
-                    }
+                    onChange(
+                      selectedValue === currentValue
+                        ? { value: '', label: '' }
+                        : option,
+                    );
 
                     setOpen(false);
                   }}

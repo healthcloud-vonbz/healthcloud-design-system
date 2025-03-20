@@ -12,7 +12,7 @@ const options = [
 
 const baseArgs = {
   options,
-  onChange: (value: string) => console.log(value),
+  onChange: (value: { value: string; label: string }) => console.log(value),
 };
 
 const meta = {
@@ -23,7 +23,7 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    value: {
+    selectedValue: {
       control: 'select',
       options,
     },
@@ -44,7 +44,7 @@ const meta = {
       options: ['arrow', 'search'],
     },
   },
-  args: baseArgs, // Define os args padrão para todas as stories
+  args: baseArgs,
 } satisfies Meta<typeof Combobox>;
 
 export default meta;
@@ -52,14 +52,16 @@ type Story = StoryObj<typeof Combobox>;
 
 export const Default: Story = {
   render: (args) => {
-    const [selectedValue, setSelectedValue] = useState('');
+    const [value, setValue] = useState('');
 
     return (
-      <Combobox
-        {...args}
-        value={selectedValue}
-        onChange={(value: string) => setSelectedValue(value)}
-      />
+      <div className="w-96">
+        <Combobox
+          {...args}
+          selectedValue={value}
+          onChange={(selectedValue) => setValue(selectedValue.value)}
+        />
+      </div>
     );
   },
   args: {
@@ -73,14 +75,16 @@ export const WithoutSearch: Story = {
     withoutSearch: true,
   },
   render: (args) => {
-    const [selectedValue, setSelectedValue] = useState('');
+    const [value, setValue] = useState('');
 
     return (
-      <Combobox
-        {...args}
-        value={selectedValue}
-        onChange={(value: string) => setSelectedValue(value)}
-      />
+      <div className="w-96">
+        <Combobox
+          {...args}
+          selectedValue={value}
+          onChange={(selectedValue) => setValue(selectedValue.value)}
+        />
+      </div>
     );
   },
 };
@@ -88,7 +92,7 @@ export const WithoutSearch: Story = {
 export const Disabled: Story = {
   args: {
     ...baseArgs,
-    value: 'react',
+    selectedValue: 'react',
     disabled: true,
     options: options.filter(
       (opt) => opt.value === 'react' || opt.value === 'svelte',
