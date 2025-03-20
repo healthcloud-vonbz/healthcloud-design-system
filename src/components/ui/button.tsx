@@ -21,6 +21,8 @@ const buttonVariants = cva(
           'hover:bg-accent hover:text-ds_health-hover-primary font-semibold text-bg-ds_health-primary',
         link: 'text-ds_health-primary underline-offset-4 hover:underline font-semibold',
         black: 'text-black hover:text-ds_health-hover-primary font-semibold',
+        input:
+          'border border-input text-left font-thin bg-background hover:border-input hover:bg-accent hover:text-ds_health-hover-text-primary my-1 w-full text-left p-4 justify-normal',
       },
       size: {
         default: 'h-10 px-4 py-2',
