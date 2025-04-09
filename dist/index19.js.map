@@ -1,0 +1,1 @@
+{"version":3,"file":"index19.js","sources":["../src/utils/locales/index.ts"],"sourcesContent":["import { enUS, ptBR } from 'date-fns/locale';\n\nexport const locales = {\n  'pt-BR': ptBR,\n  'en-US': enUS,\n};\n\nexport type Locales = keyof typeof locales;\n"],"names":["locales","ptBR","enUS"],"mappings":";;AAEO,MAAMA,IAAU;AAAA,EACrB,SAASC;AAAA,EACT,SAASC;AACX;"}
